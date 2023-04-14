@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Foling Dashboard</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" />
+  <link rel="stylesheet" href="https://unpkg.com/@mdi/font@6.x/css/materialdesignicons.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons" />
+  <link rel="stylesheet" href="https://unpkg.com/vuetify@2.6.10/dist/vuetify.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
+  <script src="https://unpkg.com/babel-polyfill/dist/polyfill.min.js"></script>
+  <script src="https://unpkg.com/vuetify@2.6.10/dist/vuetify.min.js"></script>
+  <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+  <link rel="stylesheet" href="/web/front-end/styles/style.css" />
+</head>
+
+<body>
+  <div class="container">
+
+
+
+     <aside>
+      
+      <div class="top">
+        <div class="logo">
+          <img src="/web/assets/logi.jpeg" />
+          <h2>FOL <span class="danger">ING </span></h2>
+        </div>
+        <div class="close" id="close-btn">
+        <span class="material-icons-sharp"> close </span>
+        </div>
+      </div>
+
+      <div class="sidebar">
+        <a href="#" class="active">
+          <span class="material-icons-sharp">grid_view</span>
+          <h3>Dashboard</h3>
+        </a>
+        <a href="#">
+          <span class="material-icons-sharp">group</span>
+          <h3>Users Admin</h3>
+        </a>
+        <a href="#">
+          <span class="material-icons-sharp">query_stats</span>
+          <h3>Stats</h3>
+        </a>
+        <a href="#">
+          <span class="material-icons-sharp"> sports_esports </span>
+
+          <h3>Jugabilitat</h3>
+        </a>
+        <a href="#">
+          <span class="material-icons-sharp"> settings </span>
+
+          <h3>Settings</h3>
+        </a>
+        <a href="#">
+          <span class="material-icons-sharp"> logout </span>
+
+          <h3>LogOut</h3>
+        </a>
+      </div>
+    </aside>
+    <!--Centro-->
+    <main>
+      <h1>Dashboard</h1>
+      <div class="date">
+        <input type="date" />
+      </div>
+      <div class="insights">
+        <div class="players">
+          <span class="material-icons-sharp"> person </span>
+          <div class="middle">
+            <div class="left">
+              <h3>Total Players</h3>
+              <h1>33</h1>
+            </div>
+            <div class="progress">
+              <svg>
+                <circle cx="38" cy="38" r="36"></circle>
+              </svg>
+              <div class="number">
+                <p>33%</p>
+              </div>
+            </div>
+          </div>
+          <small class="text-muted">All Time Players</small>
+        </div>
+        <div class="gametime">
+          <span class="material-icons-sharp"> timer </span>
+          <div class="middle">
+            <div class="left">
+              <h3>Total GameTime</h3>
+              <h1>33</h1>
+            </div>
+            <div class="progress">
+              <svg>
+                <circle cx="38" cy="38" r="36"></circle>
+              </svg>
+              <div class="number">
+                <p>33%</p>
+              </div>
+            </div>
+          </div>
+          <small class="text-muted">All Time Players</small>
+        </div>
+        <div class="money">
+          <span class="material-icons-sharp"> paid </span>
+          <div class="middle">
+            <div class="left">
+              <h3>Total Money</h3>
+              <h1>33</h1>
+            </div>
+            <div class="progress">
+              <svg>
+                <circle cx="38" cy="38" r="36"></circle>
+              </svg>
+              <div class="number">
+                <p>33%</p>
+              </div>
+            </div>
+          </div>
+          <small class="text-muted">All Time Players</small>
+        </div>
+      </div>
+      <div class="users">
+        <h2>Users</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Username</th>
+              <th>Rol</th>
+              <th>Borrar</th>
+              <th>Update</th>
+              <th>Tiempo de Juego</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Mario Santos</td>
+              <td class="sucess">Admin</td>
+              <td>
+                <button class="material-icons-sharp">delete</button>
+              </td>
+              <td>
+                <button class="material-icons-sharp">update</button>
+              </td>
+              <td>2H</td>
+            </tr>
+          </tbody>
+        </table>
+        <a href="#">Show All</a>
+      </div>
+    </main>
+
+    <!--Derecha-->
+    <div class="right">
+      <div class="top">
+        <button id="menu-btn">
+          <span class="material-icons-sharp"> menu </span>
+        </button>
+        <div class="tema">
+          <span class="material-icons-sharp active"> light_mode </span>
+          <span class="material-icons-sharp"> dark_mode </span>
+
+        </div>
+        <div class="profile">
+          <div class="info">
+            <p>Hello, {{user}}</p>
+            <small class="text-muted">{{rol}}</small>
+
+          </div>
+          <div class="profile-photo">
+            <img src="/web/assets/fotito.JPG">
+          </div>
+        </div>
+      </div>
+
+      <div class="recent-played">
+        <h2>People That Played Recently to Foling</h2>
+        <div class="updates">
+          <div class="update">
+            <div class="profile-photo">
+              <img src="/web/assets/fotito.JPG">
+            </div>
+            <div class="message">
+              <p><b>{{user}} </b> Played during {{gametime}}</p>
+              <small class="text-muted">{{time}} ago</small>
+            </div>
+            <div class="update">
+              <div class="profile-photo">
+                <img src="/web/assets/fotito2.JPG">
+              </div>
+              <div class="message">
+                <p><b>{{user}} </b> Played during {{gametime}}</p>
+                <small class="text-muted">{{time}} ago</small>
+              </div>
+              <div class="update">
+                <div class="profile-photo">
+                  <img src="/web/assets/fotito3.JPG">
+                </div>
+                <div class="message">
+                  <p><b>{{user}} </b> Played during {{gametime}}</p>
+                  <small class="text-muted">{{time}} ago</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+</body>
+<script src="index.js"></script>
+
+</html>

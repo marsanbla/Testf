@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
+  <link rel="stylesheet" href="/web/front-end/styles/style.css" /> 
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" />
+  <link rel="stylesheet" href="https://unpkg.com/@mdi/font@6.x/css/materialdesignicons.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons" />
+  <link rel="stylesheet" href="https://unpkg.com/vuetify@2.6.10/dist/vuetify.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
+  <script src="https://unpkg.com/babel-polyfill/dist/polyfill.min.js"></script>
+  <script src="https://unpkg.com/vuetify@2.6.10/dist/vuetify.min.js"></script>
+  <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+  <title>Foling Admin Panel</title>
+</head>
+<body>
+  <v-app id="app">
+
+    <v-container fill-height v-if="loginpage==true && auth==false">
+      <v-row justify="center" align-items="center">
+        <v-col cols="10" s="4">
+          <template>
+            <v-card-title class="title">Foling Admin Panel</v-card-title>
+            <v-img src="/web/assets/logi.jpeg"></v-img>
+            <v-form ref="form" lazy-validation>
+
+              <v-text-field type="name" :counter="20" label="Name" v-model="username" required
+                append-icon="mdi-contacts"></v-text-field>
+              <v-text-field type="password" :counter="20" label="Password" v-model="passwd" required
+                append-icon="mdi-lock"></v-text-field>
+              <v-btn color="success" class="mr-4" @click="getAuthPost">
+                Login
+              </v-btn>
+              <v-btn color="success" class="mr-4" @click="register">
+
+                Register
+              </v-btn>
+              <v-btn color="success" class="mr-4" @click="getLogOutPost">
+                LogOut
+              </v-btn>
+              <v-btn color="success" class="mr-4"  href="./index.html"></a>>
+                Enter to the page
+              </v-btn>
+            </v-form>
+            <v-snackbar v-model="snackbar" :timeout="timeout" absolute center shaped bottom>
+              {{ text }}
+              <template v-slot:action="{ attrs }">
+                <v-btn color="success" text v-bind="attrs" @click="snackbar= false">
+                  Close
+                </v-btn>
+              </template>
+            </v-snackbar>
+
+            <v-progress-linear color="success" value="1" v-if="loading" indeterminate reverse>
+            </v-progress-linear>
+          </template>
+
+        </v-col>
+      </v-row>
+  </v-app>
+</body>
+<script src="/web/front-end/scripts/index.js"></script>
+</html>
